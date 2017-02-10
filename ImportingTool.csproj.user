@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>C:\All Data\Deployment\ConversionTool\|D:\Deployment\ConversionTool\|C:\All Data\Deployment\uniconta\conversiontool\</PublishUrlHistory>
+    <InstallUrlHistory>http://erp.uniconta.com/ConversionTool/|http://erp.uniconta.com/conversiontool/</InstallUrlHistory>
+    <SupportUrlHistory>http://uniconta.com/en/contact-us/|http://ww.uniconta.com/contact_us</SupportUrlHistory>
+    <UpdateUrlHistory>http://erp.uniconta.com/ConversionTool/</UpdateUrlHistory>
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+    <ProjectView>ShowAllFiles</ProjectView>
+  </PropertyGroup>
+</Project>

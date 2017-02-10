@@ -1,0 +1,16 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:DialogControls="clr-namespace:ImportingTool.DialogControls"
+        x:Class="ImportingTool.Pages.LoginWindow" AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen" Height="520" Width="650" Background="Transparent" ResizeMode="NoResize"  WindowStyle="None" ShowInTaskbar="False">
+    <Border Background="#90000000">
+        <Border Background="LightGray" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Opacity="0.5" Direction="270" ShadowDepth="0.7" />
+            </Border.BitmapEffect>
+            <Grid>
+                <DialogControls:LoginDialog x:Name="loginCtrl"/>
+            </Grid>
+        </Border>
+    </Border>
+</Window>

@@ -1,0 +1,81 @@
+﻿<Window x:Class="ImportingTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:Utility="clr-namespace:ImportingTool.Utility"
+        xmlns:local="clr-namespace:ImportingTool"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Background="White" 
+       Title="Uniconta Conversion Tool" Height="590" Width="650" WindowState="Normal" WindowStartupLocation="CenterScreen" Icon="Images/favicon.ico">
+    <Window.Resources>
+        <Utility:LocalizationValueConverter x:Key="LocalizationConverter"></Utility:LocalizationValueConverter>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="25" />
+            <Setter Property="MinWidth" Value="170" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="25"></Setter>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="25" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <local:HeightConverter x:Key="HeightConverter" />
+    </Window.Resources>
+     <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+      <TabControl x:Name="tabControl" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="0">
+            <TabItem Header="Import">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition  Height="40"/>
+                        <RowDefinition  Height="30"/>
+                        <RowDefinition  Height="30"/>
+                        <RowDefinition  Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+             
+                <TextBlock Text="{Binding Converter={StaticResource LocalizationConverter},ConverterParameter=CompanyName,StringFormat=\{0\}:}"  />
+                <TextBox Grid.Column="2" x:Name="txtCompany" Width="170" HorizontalAlignment="Left"></TextBox>
+                <Button x:Name="btnTerminate" Content="{Binding Converter={StaticResource LocalizationConverter},ConverterParameter=Terminate}" Grid.Column="3" Click="btnTerminate_Click" Width="Auto" HorizontalAlignment="Right" Margin="0 0 10 0"></Button>
+
+                <TextBlock Text="{Binding Converter={StaticResource LocalizationConverter},ConverterParameter=ImportFrom,StringFormat=\{0\}:}" Grid.Row="1" Grid.Column="0"></TextBlock>
+                <ComboBox x:Name="cmbImportFrom"  HorizontalAlignment="Left" MinWidth="170" Grid.Column="2" Grid.Row="1" SelectionChanged="cmbImportFrom_SelectionChanged"></ComboBox>
+              
+                <CheckBox x:Name="chkSetAccount" Content="Sæt 0-er foran kontonummer, hvis kontonumre ikke er lige lange?" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" IsEnabled="False" VerticalAlignment="Center" IsChecked="False"></CheckBox>
+                <TextBlock Text="{Binding Converter={StaticResource LocalizationConverter},ConverterParameter=SelectDirectory,StringFormat=\{0\}:}" Grid.Row="4" Grid.Column="0"></TextBlock>
+
+                <TextBlock Text="Import Dimensioner:" Grid.Row="3" Grid.Column="0"></TextBlock>
+                <ComboBox x:Name="cmbImportDimension"  HorizontalAlignment="Left" MinWidth="170" Grid.Column="2" Grid.Row="3"></ComboBox>
+                
+                <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="2">
+                     <TextBox x:Name="txtImportFromDirectory" />
+                     <Button x:Name="btnImportFromDir" Content="{Binding Converter={StaticResource LocalizationConverter},ConverterParameter=Browse}" Margin="3 0 0 0" Height="25" Click="btnImportFromDir_Click"></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="2">
+                     <Button x:Name="btnImport" Content="{Binding Converter={StaticResource LocalizationConverter},ConverterParameter=Import}" Click="btnImport_Click" Width="Auto" HorizontalAlignment="Left"></Button>
+                     <Button x:Name="btnCopyLog" Margin="5 0 0 0" Click="btnCopyLog_Click" Width="Auto" HorizontalAlignment="Left"></Button>
+                     <ProgressBar x:Name="progressBar" TextBlock.FontWeight="Bold" Height="25" Foreground="Blue" Minimum="0" Maximum="100" Style="{DynamicResource MyProgressBarStyle}" Margin="10 0 0 0" Width="200" />
+                </StackPanel>
+                <TextBox AcceptsReturn="True" Grid.Row="6" MinHeight="300" Text="{Binding LogMsg,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="4" x:Name="txtLogs" VerticalContentAlignment="Top"   VerticalAlignment="Top" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></TextBox>
+                </Grid>
+            </TabItem>
+          
+        </TabControl>    
+                
+    </Grid>
+</Window>
